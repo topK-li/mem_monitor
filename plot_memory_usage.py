@@ -12,7 +12,7 @@ font_prop = fm.FontProperties(fname=font_path)
 # 设置 Matplotlib 字体以支持中文
 plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
-# 日志文件名修改为 monitor.log
+# 日志文件
 log_file = "monitor.log"
 img_dir = "img"
 

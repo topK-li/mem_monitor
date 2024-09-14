@@ -27,4 +27,6 @@ sudo python plot_memory_usage.py
 ```
 ![memory_usage_python_492427_20240914113203_20240914143203](https://github.com/user-attachments/assets/5b770a36-fd75-4e30-a3eb-d0c0f721abe2)
 
-
+### 错误排查
+findfont: Generic family ‘sans-serif’ not found because none of the following families were found: SimHei
+https://topk-li.github.io/2024/09/14/matplotlib-zi-ti-wen-ti/

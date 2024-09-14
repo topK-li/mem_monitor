@@ -12,7 +12,6 @@ nohup python monitor.py > monitor.log 2>&1 &
 ### 3、绘制进程内存使用情况折线图
 ```bash
 sudo python plot_memory_usage.py
-```
 1: 最近30秒
 2: 最近1分钟
 3: 最近5分钟
@@ -25,4 +24,6 @@ sudo python plot_memory_usage.py
 10: 用户自选时间段
 请输入选项编号: 10
 请输入时间范围 (格式: YYYYMMDDHHMMSS-YYYYMMDDHHMMSS):
+```
+
 

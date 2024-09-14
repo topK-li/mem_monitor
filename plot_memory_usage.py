@@ -12,8 +12,8 @@ font_prop = fm.FontProperties(fname=font_path)
 # 设置 Matplotlib 字体以支持中文
 plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
-# 日志文件
-log_file = "check.log"
+# 日志文件名修改为 monitor.log
+log_file = "monitor.log"
 img_dir = "img"
 
 # 创建图像保存目录（如果不存在）
@@ -34,16 +34,17 @@ def parse_log_data(start_time, end_time):
                 if current_time < start_time or current_time > end_time:
                     current_time = None
             elif current_time and line.strip() and not line.startswith("PID"):
-                parts = line.split()
+                parts = line.split('\t')
                 pid = parts[0]
                 user = parts[1]
                 cpu = float(parts[2])
                 mem = float(parts[3])
                 command = parts[4]
                 file_path = parts[5] if len(parts) > 5 else "N/A"
+                cmdline = parts[6] if len(parts) > 6 else "N/A"
 
                 if pid not in processes:
-                    processes[pid] = {'timestamps': [], 'memory_usage': [], 'command': command, 'file_path': file_path}
+                    processes[pid] = {'timestamps': [], 'memory_usage': [], 'command': command, 'file_path': file_path, 'cmdline': cmdline}
                 
                 processes[pid]['timestamps'].append(current_time)
                 processes[pid]['memory_usage'].append(mem)
@@ -98,13 +99,14 @@ def plot_memory_usage(processes, title, start_time, end_time):
             memory_usages = data['memory_usage']
             command = data['command']
             file_path = data['file_path']
+            cmdline = data['cmdline']
 
             # 过滤数据，智能选择采样点
             filtered_timestamps, filtered_memory_usages = filter_data(timestamps, memory_usages)
 
             plt.figure(figsize=(12, 6))
             plt.plot(filtered_timestamps, filtered_memory_usages, marker='o', linestyle='-', label=f"{command} ({file_path})")
-            plt.title(f"{title} - PID: {pid}, Program: {command}", fontproperties=font_prop)
+            plt.title(f"{title} - PID: {pid}, Program: {command}, CMD: {cmdline}", fontproperties=font_prop)
             plt.xlabel("时间", fontproperties=font_prop)
             plt.ylabel("内存使用率 (%)", fontproperties=font_prop)
 
@@ -179,4 +181,3 @@ if __name__ == "__main__":
     if start_time and end_time:
         processes = parse_log_data(start_time, end_time)
         plot_memory_usage(processes, f"{start_time.strftime('%Y-%m-%d %H:%M:%S')} - {end_time.strftime('%Y-%m-%d %H:%M:%S')}", start_time, end_time)
-

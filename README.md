@@ -32,7 +32,7 @@ sudo python plot_memory_usage.py
 ```
 ### 3、绘制服务器内存使用情况折线图
 ```bash
-sodu python plot_server_memory.py
+sudo python plot_server_memory.py
 1: 最近30秒
 2: 最近1分钟
 3: 最近5分钟

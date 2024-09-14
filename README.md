@@ -11,7 +11,7 @@ nohup python monitor_process.py > monitor.log 2>&1 &
 ```
 monitor.py记录每秒服务器的内存使用情况取前20输出到server_memory.log保存
 ```bash
-nohup python monitor_server.py > server_memory.log 2>&1 &
+nohup python monitor_memory.py &
 ```
 
 ### 3、绘制进程内存使用情况折线图

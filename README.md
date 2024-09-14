@@ -25,7 +25,8 @@ sudo python plot_memory_usage.py
 请输入选项编号: 10
 请输入时间范围 (格式: YYYYMMDDHHMMSS-YYYYMMDDHHMMSS):
 ```
-![memory_usage_python_492427_20240914113203_20240914143203](https://github.com/user-attachments/assets/5b770a36-fd75-4e30-a3eb-d0c0f721abe2)
+![memory_usage_python_521346_20240914155646_20240914160146](https://github.com/user-attachments/assets/4c35daa5-fc06-49cc-a707-03430e6b9801)
+
 
 ### 错误排查
 findfont: Generic family ‘sans-serif’ not found because none of the following families were found: SimHei  

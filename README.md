@@ -25,5 +25,6 @@ sudo python plot_memory_usage.py
 请输入选项编号: 10
 请输入时间范围 (格式: YYYYMMDDHHMMSS-YYYYMMDDHHMMSS):
 ```
+![memory_usage_python_492427_20240914113203_20240914143203](https://github.com/user-attachments/assets/5b770a36-fd75-4e30-a3eb-d0c0f721abe2)
 
 
